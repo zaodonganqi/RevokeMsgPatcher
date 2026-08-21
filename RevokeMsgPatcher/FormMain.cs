@@ -354,6 +354,7 @@ namespace RevokeMsgPatcher
                         qqModifier.Config = newBag.Apps["QQ"];
                         timModifier.Config = newBag.Apps["TIM"];
                         qqLiteModifier.Config = newBag.Apps["QQLite"];
+                        qqntModifier.Config = newBag.Apps["QQNT"];
 
                         getPatchJsonStatus = "SUCCESS";
                         bag = newBag;

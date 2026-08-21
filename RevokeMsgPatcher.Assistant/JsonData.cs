@@ -17,7 +17,7 @@ namespace RevokeMsgPatcher
             {
                 Apps = AppConfig(),
                 LatestVersion = "2.1",
-                PatchVersion = 20260816,
+                PatchVersion = 20260821,
                 Notice = "",
                 NoticeUrl = "",
             };
@@ -1392,6 +1392,52 @@ namespace RevokeMsgPatcher
                         "wrapper.node",
                         new List<CommonModifyInfo>
                         {
+                            new CommonModifyInfo
+                            {
+                                Name="wrapper.node",
+                                StartVersion="9.8.0.23960",
+                                EndVersion="9.8.0.23961",
+                                ReplacePatterns = new List<ReplacePattern>
+                                {
+                                    new ReplacePattern
+                                    {
+                                        Search = ByteUtil.HexStringToByteArray("48 8B 95 3F 3F 3F 3F 4C 8B 85 3F 3F 3F 3F 4C 89 C0 48 29 D0 48 83 F8 07 0F 87"),
+                                        Replace = ByteUtil.HexStringToByteArray("48 8B 95 3F 3F 3F 3F 4C 8B 85 3F 3F 3F 3F 4C 89 C0 48 29 D0 48 83 F8 07 0F 86"),
+                                        Category = "防撤回",
+                                        Tips = "QQNT 9.8.0.23961：反转 HandleRecallSysMsg 的消息长度分支，阻止群聊撤回消息进入删除路径。"
+                                    },
+                                    new ReplacePattern
+                                    {
+                                        Search = ByteUtil.HexStringToByteArray("48 8B 8D 20 02 00 00 48 8D 95 A0 00 00 00 E8 3F 3F 3F 3F 48 8D 8D F8 01 00 00 E8"),
+                                        Replace = ByteUtil.HexStringToByteArray("48 8B 8D 20 02 00 00 48 8D 95 A0 00 00 00 90 90 90 90 90 48 8D 8D F8 01 00 00 E8"),
+                                        Category = "防撤回",
+                                        Tips = "QQNT 9.8.0.23961：跳过私聊被动撤回通知的分发调用，并保留后续清理逻辑。"
+                                    }
+                                }
+                            },
+                            new CommonModifyInfo
+                            {
+                                Name="wrapper.node",
+                                StartVersion="9.8.0.22988",
+                                EndVersion="9.8.0.22989",
+                                ReplacePatterns = new List<ReplacePattern>
+                                {
+                                    new ReplacePattern
+                                    {
+                                        Search = ByteUtil.HexStringToByteArray("48 8B 95 3F 3F 3F 3F 4C 8B 85 3F 3F 3F 3F 4C 89 C0 48 29 D0 48 83 F8 07 0F 87"),
+                                        Replace = ByteUtil.HexStringToByteArray("48 8B 95 3F 3F 3F 3F 4C 8B 85 3F 3F 3F 3F 4C 89 C0 48 29 D0 48 83 F8 07 0F 86"),
+                                        Category = "防撤回",
+                                        Tips = "QQNT 9.8.0.22989：反转 HandleRecallSysMsg 的消息长度分支，阻止群聊撤回消息进入删除路径。"
+                                    },
+                                    new ReplacePattern
+                                    {
+                                        Search = ByteUtil.HexStringToByteArray("48 8B 8D 08 02 00 00 48 8D 55 48 E8 EE 05 00 00 48 8D 8D E8 01 00 00 E8"),
+                                        Replace = ByteUtil.HexStringToByteArray("48 8B 8D 08 02 00 00 48 8D 55 48 90 90 90 90 90 48 8D 8D E8 01 00 00 E8"),
+                                        Category = "防撤回",
+                                        Tips = "QQNT 9.8.0.22989：跳过私聊被动撤回通知的分发调用，并保留后续清理逻辑。"
+                                    }
+                                }
+                            },
                             new CommonModifyInfo
                             {
                                 Name="wrapper.node",
