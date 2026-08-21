@@ -1408,10 +1408,10 @@ namespace RevokeMsgPatcher
                                     },
                                     new ReplacePattern
                                     {
-                                        Search = ByteUtil.HexStringToByteArray("48 8B 8D 20 02 00 00 48 8D 95 A0 00 00 00 E8 3F 3F 3F 3F 48 8D 8D F8 01 00 00 E8"),
-                                        Replace = ByteUtil.HexStringToByteArray("48 8B 8D 20 02 00 00 48 8D 95 A0 00 00 00 90 90 90 90 90 48 8D 8D F8 01 00 00 E8"),
+                                        Search = ByteUtil.HexStringToByteArray("41 B9 3F 3F 3F 3F E8 3F 3F 3F 3F 48 8B 8D 3F 3F 3F 3F 48 8D 95 3F 3F 3F 3F E8 3F 3F 3F 3F 48 8D 8D 3F 3F 3F 3F E8 3F 3F 3F 3F 48 8D 8D 3F 3F 3F 3F E8"),
+                                        Replace = ByteUtil.HexStringToByteArray("41 B9 3F 3F 3F 3F E8 3F 3F 3F 3F 48 8B 8D 3F 3F 3F 3F 48 8D 95 3F 3F 3F 3F 90 90 90 90 90 48 8D 8D 3F 3F 3F 3F E8 3F 3F 3F 3F 48 8D 8D 3F 3F 3F 3F E8"),
                                         Category = "防撤回",
-                                        Tips = "QQNT 9.8.0.23961：跳过私聊被动撤回通知的分发调用，并保留后续清理逻辑。"
+                                        Tips = "QQNT 9.8.0.23961：通过撤回日志与连续清理调用的模糊特征，跳过私聊被动撤回通知的分发调用。"
                                     }
                                 }
                             },
